@@ -1,20 +1,9 @@
-<<<<<<< HEAD
-# ziggy_app
+I have successfully created a Flutter app that integrates with the reqres.in API. I have connected to the /api/users?page=2 endpoint for retrieving user data and the /api/users endpoint for creating new users. The API integration is now visible through a basic UI.
 
-A new Flutter project.
-The apk is found in the app too
-## Getting Started
+The app allows users to view a list of users by making a GET request to the /api/users?page=2 endpoint. The response data is displayed in a user-friendly format on the app's interface. Users can scroll through the list to view all the available users.
 
-This project is a starting point for a Flutter application.
+Additionally, the app provides a functionality for creating new users. Users can enter the required information in the provided form fields and submit it. The app sends a POST request to the /api/users endpoint with the entered data to create a new user.
 
-A few resources to get you started if this is your first Flutter project:
+The integration with the reqres.in API has been successfully implemented, and the app provides a seamless user experience with a clean and intuitive UI. Users can effortlessly view and create users using the app.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# users_list
->>>>>>> a84371fab8a7b4422172e9586c331cea851742b8
+The app too can be found in the android folder.

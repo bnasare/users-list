@@ -2,7 +2,7 @@
 # ziggy_app
 
 A new Flutter project.
-
+The apk is found in the app too
 ## Getting Started
 
 This project is a starting point for a Flutter application.

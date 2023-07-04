@@ -16,7 +16,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  /// Initialize future users
   late Future<List<UserModel>> _futureUsers;
+
+  /// Controllers
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -37,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _futureUsers = getUsers();
   }
 
+  /// Get users from api
   Future<List<UserModel>> getUsers() async {
     try {
       final response =
@@ -56,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  /// Show dialog box
   Future<void> _showCreateUserDialog() async {
     return showDialog<void>(
       context: context,
@@ -110,6 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  /// Creating user on the UI
   Future<void> _createUser(
       String firstName, String lastName, String email, String avatar) async {
     if (firstName.isEmpty || lastName.isEmpty || email.isEmpty) {
@@ -133,6 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  /// Get create user from api
   Future<UserModel> createUser(
       String firstName, String lastName, String email, String avatar) async {
     try {
@@ -161,6 +168,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+
+      /// AppBar
       appBar: AppBar(
         title: Text('Users',
             style: GoogleFonts.braahOne(
@@ -169,6 +178,8 @@ class _HomeScreenState extends State<HomeScreen> {
         toolbarHeight: 50,
         backgroundColor: appBarColor,
       ),
+
+      /// Loading user details
       body: FutureBuilder<List<UserModel>>(
         future: _futureUsers,
         builder: (context, snapshot) {
@@ -177,7 +188,8 @@ class _HomeScreenState extends State<HomeScreen> {
           } else if (snapshot.hasError) {
             return Center(
                 child: Text('Unable to load users.',
-                    style: GoogleFonts.almarai(fontSize: 30)));
+                    style: GoogleFonts.almarai(fontSize: 40),
+                    textAlign: TextAlign.center));
           } else {
             final users = snapshot.data!;
             return Column(
@@ -194,6 +206,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           decoration: TextDecoration.underline,
                           decorationThickness: 3)),
                 ),
+
+                /// List View
                 const SizedBox(height: 10),
                 Expanded(
                   child: ListView.builder(
@@ -240,6 +254,8 @@ class _HomeScreenState extends State<HomeScreen> {
           }
         },
       ),
+
+      ///Floating action button
       floatingActionButton: FloatingActionButton(
         onPressed: _showCreateUserDialog,
         splashColor: appBarColor,
